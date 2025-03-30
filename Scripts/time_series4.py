@@ -17,7 +17,7 @@ def calculate_end_date(start_date, num_days):
     - str: The calculated end date in "YYYY-MM-DD" format.
     """
     start_date_obj = datetime.strptime(start_date, "%Y-%m-%d")
-    end_date_obj = start_date_obj + timedelta(days=num_days)
+    end_date_obj = start_date_obj + timedelta(days=float(num_days))
     return end_date_obj.strftime("%Y-%m-%d")
 
 
@@ -93,10 +93,10 @@ num_days = 30
 
 
 # Load your stock data (ensure it has a 'timestamp' and 'close' column)
-csv_path = "BTCEUR_historical_data.csv"
+
 
 def predict_future_values(coin, days):
-
+    csv_path = "BTCEUR_historical_data.csv"
     # Read the CSV, parse 'timestamp' column as datetime, and set it as the index
     data = pd.read_csv(
         csv_path,
@@ -135,3 +135,5 @@ def predict_future_values(coin, days):
 
     filtered_forecast = get_forecast_data(forecast, start_date, num_days)
     print(plot_forecast_with_plotly(filtered_forecast))
+
+predict_future_values("BTCEUR", 30)
