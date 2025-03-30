@@ -96,7 +96,7 @@ num_days = 30
 
 
 def predict_future_values(coin, days):
-    csv_path = "BTCEUR_historical_data.csv"
+    csv_path = "XRPEUR_historical_data.csv"
     # Read the CSV, parse 'timestamp' column as datetime, and set it as the index
     data = pd.read_csv(
         csv_path,
@@ -136,4 +136,4 @@ def predict_future_values(coin, days):
     filtered_forecast = get_forecast_data(forecast, start_date, num_days)
     print(plot_forecast_with_plotly(filtered_forecast))
 
-predict_future_values("BTCEUR", 30)
+predict_future_values("XRPEUR", 30)

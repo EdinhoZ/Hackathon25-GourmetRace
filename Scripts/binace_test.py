@@ -15,7 +15,8 @@ DB_CONFIG = {
 client = Client()
 
 # List of coins to fetch in EUR
-symbols = ["BTCEUR", "ETHEUR", "BNBEUR", "XRPEUR", "ADAEUR"]  # Add more as needed
+# bitcoin, ethereum, tether, xrp, bnb, solana, usdc, dogecoin, cardano, tron
+symbols = ["BTCEUR", "ETHEUR", "BNBEUR", "XRPEUR", "ADAEUR", "SOLEUR",  "DOGEEUR", "TRXEUR" ]
 interval = Client.KLINE_INTERVAL_1DAY
 start_date = "2017-01-01"
 end_date = "2025-03-27"
@@ -58,6 +59,7 @@ create_table()
 
 # Fetch and store data for each symbol
 for symbol in symbols:
+    print(symbol)
     klines = client.get_historical_klines(symbol, interval, start_date, end_date)
     
     # Convert to DataFrame
