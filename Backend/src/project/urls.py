@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from tasks.views import predict_future_values
+from CryptoDream.views import predict_future_values
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('tasks.urls')),
+    path('', include('CryptoDream.urls')),
     path('api-auth/', include('rest_framework.urls')),
     #path('predict/', predict_view, name='predict_view'),
     path('forecast/<str:coin_name>/', predict_future_values, name='forecast')
